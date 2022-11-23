@@ -1,0 +1,26 @@
+@host = localhost
+@port = 4000
+
+@
+
+### new user
+POST http://{{host}}:{{port}}/api/auth/new HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Ricardo",
+    "email": "liker251281@gmail.com",
+    "password": "20ri8125"
+}
+
+### login
+POST http://{{host}}:{{port}}/api/auth/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "liker251281@gmail.com",
+    "password": "20ri8125"
+}
+
+### renew token
+POST http://{{host}}:{{port}}/api/auth/renew HTTP/1.1
