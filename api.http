@@ -23,4 +23,5 @@ Content-Type: application/json
 }
 
 ### renew token
-POST http://{{host}}:{{port}}/api/auth/renew HTTP/1.1
+GET http://{{host}}:{{port}}/api/auth/renew HTTP/1.1
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzdlZjU4OGE1NTQxNGJmZjJjNjgzOTEiLCJuYW1lIjoiUmljYXJkbyIsImlhdCI6MTY2OTI2ODYzNCwiZXhwIjoxNjY5Mjc1ODM0fQ.8QV_Hl3EqVVg7sfgMO4kKLe8UtJ-FbNieZMWFYK30T0

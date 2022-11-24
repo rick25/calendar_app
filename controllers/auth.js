@@ -78,17 +78,17 @@ const loginUsuario = async (req, res = response) => {
             msg: 'Por favor hable con el administrador'
         })
     }
-    return res.status(200).json({
-        ok: true,
-        email,
-        password,
-    })
 }
 
-const revalidarToken = (req, res = response) => {
+const revalidarToken = async (req, res = response) => {
+    const { uid, name } = req
+
+    // Generar nuestro JWT
+    const token = await generarJWT(uid, name)
+
     return res.json({
         ok: true,
-        msg: 'renew',
+        token
     })
 }
 
