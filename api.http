@@ -1,15 +1,15 @@
 @host = localhost
 @port = 4000
 
-@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzdmZGU4MTA2ODcxYmViMWRjNmU1MmYiLCJuYW1lIjoiUmljYXJkbyBDSCIsImlhdCI6MTY2OTMzOTk3MiwiZXhwIjoxNjY5MzQ3MTcyfQ.9jjIRWhcpSTVZVf9WSFjgwuP-SyQiPzgC3Z5PwUxrlA
 
 ### new user
 POST http://{{host}}:{{port}}/api/auth/new HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Ricardo",
-    "email": "liker251281@gmail.com",
+    "name": "Adam CH",
+    "email": "adamjoseph@gmail.com",
     "password": "20ri8125"
 }
 
@@ -24,4 +24,40 @@ Content-Type: application/json
 
 ### renew token
 GET http://{{host}}:{{port}}/api/auth/renew HTTP/1.1
-x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzdlZjU4OGE1NTQxNGJmZjJjNjgzOTEiLCJuYW1lIjoiUmljYXJkbyIsImlhdCI6MTY2OTI2ODYzNCwiZXhwIjoxNjY5Mjc1ODM0fQ.8QV_Hl3EqVVg7sfgMO4kKLe8UtJ-FbNieZMWFYK30T0
+x-token: {{token}}
+
+### Listado de eventos
+GET http://{{host}}:{{port}}/api/events/ HTTP/1.1
+Content-Type: application/json
+x-token: {{token}}
+
+### Crear un evento
+POST http://{{host}}:{{port}}/api/events/ HTTP/1.1
+Content-Type: application/json
+x-token: {{token}}
+
+{
+    "title": "Trabajo pendiente",
+    "notes": "Hay que comprar el pastel",
+    "start": 1,
+    "end": 10000,
+    "bgColor": "#fafafa"
+}
+
+### Actualizar un evento
+PUT http://{{host}}:{{port}}/api/events/637fde9306871beb1dc6e531 HTTP/1.1
+Content-Type: application/json
+x-token: {{token}}
+
+{
+    "title": "Trabajo pendiente actualizado 2",
+    "notes": "Hay que comprar el pastel actualizado 2",
+    "start": 10000,
+    "end": 20000,
+    "bgColor": "#fcfcfd"
+}
+
+### Eliminar un evento
+DELETE http://{{host}}:{{port}}/api/events/637fdef032fdc8a68df85014 HTTP/1.1
+Content-Type: application/json
+x-token: {{token}}
